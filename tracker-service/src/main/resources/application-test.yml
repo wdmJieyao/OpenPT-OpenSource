@@ -1,0 +1,17 @@
+## 端口信息
+server:
+  name: QB-MANAGER
+  port: 7758
+
+#心跳鉴权定时任务配置
+heartbeat:
+  taskCorn: 0 0/15 * * * ?
+
+
+# 日志级别
+logging:
+  level:
+    org:
+      hzaw:
+        ptbf: info
+  config: classpath:logging-config-test.xml

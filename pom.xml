@@ -1,0 +1,169 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>3.2.4</version>
+        <relativePath/> <!-- lookup parent from repository -->
+    </parent>
+
+    <groupId>fun.hzaw</groupId>
+    <artifactId>OpenPT</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <packaging>pom</packaging>
+
+    <name>OpenPT</name>
+    <url>http://maven.apache.org</url>
+
+    <modules>
+        <module>common-depend</module>
+        <module>intf-service</module>
+        <module>webapi-service</module>
+        <module>tracker-service</module>
+        <module>task-service</module>
+    </modules>
+
+    <properties>
+        <maven.compiler.source>17</maven.compiler.source>
+        <maven.compiler.target>17</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <commons-lang3.version>3.12.0</commons-lang3.version>
+        <commons-collections4.version>4.4</commons-collections4.version>
+        <guava.version>33.0.0-jre</guava.version>
+        <hutool-all.version>5.8.25</hutool-all.version>
+        <lombok.version>1.18.30</lombok.version>
+        <jackson-annotations.version>2.15.2</jackson-annotations.version>
+        <jackson-databind.version>2.15.2</jackson-databind.version>
+        <fastjson2.version>2.0.40</fastjson2.version>
+        <jakarta.annotation-api.version>2.1.1</jakarta.annotation-api.version>
+        <slf4j-api.version>2.0.9</slf4j-api.version>
+        <jetbrains-annotations.version>24.0.1</jetbrains-annotations.version>
+        <spring.cloud.bootstrap.version>4.1.2</spring.cloud.bootstrap.version>
+        <spring.cloud.nacos.version>2023.0.0.0-RC1</spring.cloud.nacos.version>
+        <mysql-connector-java.version>8.0.33</mysql-connector-java.version>
+        <mybatis-plus.version>3.5.5</mybatis-plus.version>
+        <sa-token-spring-boot3.version>1.37.0</sa-token-spring-boot3.version>
+
+        <!--自模块版本依赖-->
+        <common-depend.version>1.0-SNAPSHOT</common-depend.version>
+    </properties>
+
+    <dependencyManagement>
+        <dependencies>
+
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-lang3</artifactId>
+                <version>${commons-lang3.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-collections4</artifactId>
+                <version>${commons-collections4.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.google.guava</groupId>
+                <artifactId>guava</artifactId>
+                <version>${guava.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>cn.hutool</groupId>
+                <artifactId>hutool-all</artifactId>
+                <version>${hutool-all.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.projectlombok</groupId>
+                <artifactId>lombok</artifactId>
+                <version>${lombok.version}</version>
+                <scope>provided</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>com.fasterxml.jackson.core</groupId>
+                <artifactId>jackson-annotations</artifactId>
+                <version>${jackson-annotations.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>jakarta.annotation</groupId>
+                <artifactId>jakarta.annotation-api</artifactId>
+                <version>${jakarta.annotation-api.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.alibaba.fastjson2</groupId>
+                <artifactId>fastjson2</artifactId>
+                <version>${fastjson2.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.slf4j</groupId>
+                <artifactId>slf4j-api</artifactId>
+                <version>${slf4j-api.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.jetbrains</groupId>
+                <artifactId>annotations</artifactId>
+                <version>${jetbrains-annotations.version}</version>
+            </dependency>
+
+            <!--服务注册与配置中心 start-->
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-starter-bootstrap</artifactId>
+                <version>${spring.cloud.bootstrap.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.alibaba.cloud</groupId>
+                <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
+                <version>${spring.cloud.nacos.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.alibaba.cloud</groupId>
+                <artifactId>spring-cloud-starter-alibaba-nacos-config</artifactId>
+                <version>${spring.cloud.nacos.version}</version>
+            </dependency>
+            <!--服务注册与配置中心 end-->
+
+            <!--子模块依赖-->
+            <dependency>
+                <groupId>fun.hzaw</groupId>
+                <artifactId>common-depend</artifactId>
+                <version>${common-depend.version}</version>
+            </dependency>
+            <!--子模块依赖-->
+
+            <!--数据库-->
+            <dependency>
+                <groupId>mysql</groupId>
+                <artifactId>mysql-connector-java</artifactId>
+                <version>${mysql-connector-java.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>mybatis-plus-boot-starter</artifactId>
+                <version>${mybatis-plus.version}</version>
+            </dependency>
+            <!--数据库-->
+
+            <!--开源权限框架-->
+            <dependency>
+                <groupId>cn.dev33</groupId>
+                <artifactId>sa-token-spring-boot3-starter</artifactId>
+                <version>${sa-token-spring-boot3.version}</version>
+            </dependency>
+            <!--开源权限框架-->
+
+        </dependencies>
+    </dependencyManagement>
+</project>

@@ -1,0 +1,34 @@
+spring:
+  cloud:
+    nacos:
+      config:
+        server-addr: nacos服务端地址
+        password: password
+        username: username
+        namespace: 7316344f-3234-46f3-xxxxxxxxxxxxxxxxxxxx
+        group: openpt-project-group
+        # 配置文件格式，默认为properties
+        file-extension: yaml
+        extension-configs[0]:
+          data-id: tracker-service-variable.yaml # 额外的配置文件
+          group: openpt-project-group
+          refresh: true # 是否支持动态刷新
+#        extension-configs[1]:
+#          data-id: project-variable.yaml # 额外的配置文件
+#          group: qb-manager-service-group
+#          refresh: true # 是否支持动态刷新
+#        shared-configs[0]:
+#          data-id: database-common.yaml # 共享的配置文件
+#          group: common_database_group
+#          refresh: true
+  application:
+    name: openpt-tracker-service
+
+
+# 日志级别
+logging:
+  level:
+    org:
+      hzaw:
+        trackerservice: info
+  config: classpath:logging-config-dev.xml
