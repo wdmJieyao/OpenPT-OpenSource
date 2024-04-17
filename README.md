@@ -47,7 +47,7 @@ tacker服务，也是整个站点最重要，访问次数最频繁的服务，�
 
 目前将最难的tracker做种调通（大量参考rocketpt），下一步应该是将peer与站点用户信息绑定在一起，并校验权限，但是目前还属于“新建文件夹”阶段，还需要很长的路要走。
 
-**目前可以在种子种添加 **`http://tracker.hzaw.fun:7758/tracker-service/api/report/announce` **tracker 地址体验**（当然得有人用才能拉到peer）
+**目前可以在种子种添加 **`http://tracker.hzaw.org:7758/tracker-service/api/report/announce` **tracker 地址体验**（当然得有人用才能拉到peer）
 
 当然你也可以拉下代码，然后自行打包tracker-service服务运行或者封装到docker。
 
